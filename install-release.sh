@@ -80,11 +80,11 @@ download_xray() {
         echo 'error: Download failed! Please check your network or try again.'
         exit 1
     fi
-    # curl -L -H 'Cache-Control: no-cache' -o "$ZIP_FILE.dgst" "$DOWNLOAD_LINK.dgst" -#
-    # if [ "$?" -ne '0' ]; then
-    #     echo 'error: Download failed! Please check your network or try again.'
-    #     exit 1
-    # fi
+    curl -L -H 'Cache-Control: no-cache' -o "$ZIP_FILE.dgst" "$DOWNLOAD_LINK.dgst" -#
+    if [ "$?" -ne '0' ]; then
+        echo 'error: Download failed! Please check your network or try again.'
+        exit 1
+    fi
 }
 
 verification_xray() {
@@ -189,7 +189,7 @@ main() {
     install_software
     install_software
     download_xray
-    # verification_xray
+    verification_xray
     decompression
     is_it_running
     install_xray
